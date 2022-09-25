@@ -9,7 +9,7 @@ class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption('Sprout land')
+        pygame.display.set_caption('Farmermania')
         self.clock = pygame.time.Clock()
         self.level = Level()
 
@@ -19,8 +19,8 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-
-            dt = self.clock.tick() / 1000
+            # < self.clock.tick(_your_frame_rate_) / 1000 >
+            dt = self.clock.tick(30) / 1000
             self.level.run(dt)
             pygame.display.update()
 
