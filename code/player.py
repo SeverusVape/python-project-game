@@ -1,6 +1,7 @@
 import pygame
 from settings import *
 from support import *
+from timer import Timer
 
 
 class Player(pygame.sprite.Sprite):
@@ -19,6 +20,17 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.math.Vector2()
         self.pos = pygame.math.Vector2(self.rect.center)
         self.speed = 200
+
+        # timers
+        self.timers = {
+            'tool use': Timer(350, self.use_tool)
+        }
+
+        # tools
+        self.selected_tool = "axe"
+
+    def use_tool(self):
+        print(self.selected_tool)
 
     def import_assets(self):
         self.animations = {'up': [], 'down': [], 'left': [], 'right': [],
@@ -41,6 +53,7 @@ class Player(pygame.sprite.Sprite):
     def input(self):
         keys = pygame.key.get_pressed()
 
+        # directions movement
         if keys[pygame.K_w]:
             self.direction.y = -1
             self.status = "up"
@@ -59,11 +72,18 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
+        # tool use
+        if keys[pygame.K_q]:
+            # timer for tools
+            self.timers["tool use"].activate()
+
     def get_status(self):
         # for if the player not moving
         if self.direction.magnitude() == 0:
             self.status = self.status.split("_")[0] + "_idle"
         # tool use
+        if self.timers["tool use"].active:
+            print("Using tool")
 
     def move(self, dt):
         # normalizing the vector (all directions vector = 1, !but not less than)
