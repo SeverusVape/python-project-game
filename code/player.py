@@ -41,7 +41,6 @@ class Player(pygame.sprite.Sprite):
 
     def use_tool(self):
         pass
-        # print(self.selected_tool)
 
     def use_seed(self):
         pass
