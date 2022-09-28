@@ -8,6 +8,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, pos, group):
         super().__init__(group)
 
+        # self.animations = None ???
         self.import_assets()
         self.status = "down_idle"
         self.frame_index = 0
