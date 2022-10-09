@@ -55,6 +55,8 @@ class Player(pygame.sprite.Sprite):
         self.sleep = False
         self.soil_layer = soil_layer
         self.toggle_shop = toggle_shop
+        # sound
+        # self.watering = pygame.mixer.Sound("./audio/water.mp3")
 
     def use_tool(self):
         if self.selected_tool == "hoe":
@@ -67,6 +69,7 @@ class Player(pygame.sprite.Sprite):
 
         if self.selected_tool == "water":
             self.soil_layer.water(self.target_pos)
+            # self.watering.play()
 
     def get_target_pos(self):
         self.target_pos = self.rect.center + PLAYER_TOOL_OFFSET[self.status.split("_")[0]]
@@ -145,7 +148,6 @@ class Player(pygame.sprite.Sprite):
 
             # day restart
             if keys[pygame.K_RETURN]:
-                self.toggle_shop()
                 collided_interaction_sprite = pygame.sprite.spritecollide(self, self.interaction, False)
                 if collided_interaction_sprite:
                     if collided_interaction_sprite[0].name == "Trader":
