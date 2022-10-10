@@ -4,7 +4,7 @@
 - Assets: by [CUP NOOBLE](https://cupnooble.itch.io/sprout-lands-asset-pack)
 
 ## Features of a game
-You can grow plants and sell them to merchant. Game has day/night transition. Weather conditions.
+You can grow plants and sell them to merchant. Game has day/night transition. Weather conditions(rain).
 
 ## Keys
 - W_KEY = move up
@@ -13,7 +13,7 @@ You can grow plants and sell them to merchant. Game has day/night transition. We
 - S_KEY = move back
 - Q_KEY = switch between tools
 - E_KEY = switch between seeds
-- SPASE_KEY = use tool
+- SPACE_KEY = use tool
 - CTRL_KEY = use seed
 - ENTER_KEY = menu
 
